@@ -1,0 +1,7 @@
+// _components-theme.scss
+
+@use "../src/app/shared/components/alert/alert-theme" as alert;
+
+@mixin theme($theme, $typography-config) {
+  @include alert.theme($theme, $typography-config);
+}

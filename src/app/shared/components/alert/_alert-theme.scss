@@ -1,0 +1,44 @@
+// _alert-theme.scss
+
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, "primary");
+
+  .alert {
+    color: mat.get-color-from-palette($primary-palette, 700);
+    background-color: mat.get-color-from-palette($primary-palette, 100);
+    border-color: mat.get-color-from-palette($primary-palette, 300);
+
+    .alert-link {
+      color: mat.get-color-from-palette($primary-palette, 900);
+    }
+  }
+}
+
+@mixin typography($typography-config) {
+  .alert {
+    .alert-heading {
+      @include mat.typography-level($typography-config, "title");
+    }
+    .alert-footer {
+      @include mat.typography-level($typography-config, "caption");
+    }
+  }
+}
+
+@mixin theme($theme, $typography-config) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  @if $typography-config != null {
+    @include typography($typography-config);
+  }
+}

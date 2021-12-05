@@ -1,0 +1,54 @@
+// alert.scss
+
+.alert {
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: 0.25;
+    height: 1px;
+  }
+
+  .alert-heading {
+    color: inherit;
+  }
+
+  .alert-link {
+    font-weight: 700;
+  }
+
+  mat-icon {
+    color: currentColor;
+    vertical-align: middle;
+    font-size: inherit;
+    line-height: inherit;
+    height: inherit;
+    width: inherit;
+  }
+
+  .alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+
+    mat-icon {
+      color: #000;
+      font-size: 24px;
+      line-height: 1;
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  .alert-footer {
+    margin-bottom: 0;
+  }
+}

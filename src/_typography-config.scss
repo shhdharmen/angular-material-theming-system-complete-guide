@@ -1,0 +1,18 @@
+// _typography-config.scss
+
+@use "@angular/material" as mat;
+
+$heading-font-family: "'Work Sans', sans-serif";
+$my-app-typography: mat.define-typography-config(
+  $display-4:
+    mat.define-typography-level(112px, $font-family: $heading-font-family),
+  $display-3:
+    mat.define-typography-level(56px, $font-family: $heading-font-family),
+  $display-2:
+    mat.define-typography-level(45px, $font-family: $heading-font-family),
+  $display-1:
+    mat.define-typography-level(34px, $font-family: $heading-font-family),
+  $headline:
+    mat.define-typography-level(24px, $font-family: $heading-font-family),
+  $title: mat.define-typography-level(20px, $font-family: $heading-font-family),
+);
