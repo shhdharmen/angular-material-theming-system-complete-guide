@@ -52,7 +52,7 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "src/themes/dark.scss",
+                "input": "src/styles/themes/dark.scss",
                 "bundleName": "dark-theme",
                 "inject": false
               }

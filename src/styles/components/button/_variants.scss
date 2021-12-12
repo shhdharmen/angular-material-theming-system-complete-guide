@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "sass:meta";
+@use "@angular/material" as mat;
+
+$_ripple-opacity: 0.1;
+
+// Applies a focus style to an mat-button element for each of the supported palettes.
+@mixin _focus-overlay-color($config-or-theme, $variants) {
+  $config: mat.get-color-config($config-or-theme);
+
+  @each $variant, $variant-palette in $variants {
+    &.mat-#{$variant} .mat-button-focus-overlay {
+      background-color: mat.get-color-from-palette($variant-palette);
+    }
+  }
+}
+
+@mixin _ripple-background($palette, $hue, $opacity) {
+  $background-color: mat.get-color-from-palette($palette, $hue, $opacity);
+  background-color: $background-color;
+  @if (meta.type-of($background-color) != color) {
+    opacity: $opacity;
+  }
+}
+
+@mixin _ripple-color($theme, $hue, $opacity, $variants) {
+  @each $variant, $variant-palette in $variants {
+    &.mat-#{$variant} .mat-ripple-element {
+      @include _ripple-background($variant-palette, $hue, $opacity);
+    }
+  }
+}
+
+// Applies a property to an mat-button element for each of the supported palettes.
+@mixin _theme-property($theme, $property, $hue, $variants) {
+  $success: mat.define-palette(mat.$green-palette);
+  $background: map.get($theme, background);
+  $foreground: map.get($theme, foreground);
+
+  @each $variant, $variant-palette in $variants {
+    &.mat-#{$variant} {
+      #{$property}: mat.get-color-from-palette($variant-palette, $hue);
+    }
+
+    &.mat-#{$variant} {
+      &.mat-button-disabled {
+        $palette: if($property == "color", $foreground, $background);
+        #{$property}: mat.get-color-from-palette($palette, disabled-button);
+      }
+    }
+  }
+}
+
+@mixin color($config-or-theme, $variants) {
+  $config: mat.get-color-config($config-or-theme);
+  $foreground: map.get($config, foreground);
+  $background: map.get($config, background);
+
+  .mat-button,
+  .mat-icon-button,
+  .mat-stroked-button {
+    @include _theme-property($config, "color", text, $variants);
+    @include _focus-overlay-color($config, $variants);
+  }
+
+  .mat-flat-button,
+  .mat-raised-button,
+  .mat-fab,
+  .mat-mini-fab {
+    @include _theme-property($config, "color", default-contrast, $variants);
+    @include _theme-property($config, "background-color", default, $variants);
+    @include _ripple-color(
+      $config,
+      default-contrast,
+      $_ripple-opacity,
+      $variants
+    );
+  }
+}
