@@ -1,3 +1,5 @@
+// src/styles/components/button/_variants.scss
+
 @use "sass:map";
 @use "sass:meta";
 @use "@angular/material" as mat;
@@ -33,7 +35,6 @@ $_ripple-opacity: 0.1;
 
 // Applies a property to an mat-button element for each of the supported palettes.
 @mixin _theme-property($theme, $property, $hue, $variants) {
-  $success: mat.define-palette(mat.$green-palette);
   $background: map.get($theme, background);
   $foreground: map.get($theme, foreground);
 

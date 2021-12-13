@@ -1,3 +1,5 @@
+// src/app/app.component.ts
+
 import { Component } from '@angular/core';
 import { StyleManager } from './shared/services/style-manager.service';
 

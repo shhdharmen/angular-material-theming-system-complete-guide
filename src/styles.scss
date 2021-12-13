@@ -1,4 +1,4 @@
-// styles.scss
+// src/styles.scss
 
 @use "@angular/material" as mat;
 
@@ -22,6 +22,5 @@ body {
 }
 body {
   margin: 0;
-  padding-right: 56px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
