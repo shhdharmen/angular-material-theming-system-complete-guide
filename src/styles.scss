@@ -2,9 +2,9 @@
 
 @use "@angular/material" as mat;
 
-@use "./styles/themes/light";
-@use "./styles/components";
-@use "./styles/typography/config" as typography;
+@use "../src/styles/themes/light";
+@use "../src/styles/components";
+@use "../src/styles/typography/config" as typography;
 
 @include mat.core(typography.$my-app-typography);
 
