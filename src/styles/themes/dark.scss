@@ -28,8 +28,8 @@ $my-app-dark-variants: (
 );
 
 .dark-theme {
-  @include mat.core-color($my-app-dark-theme);
-  @include mat.button-color($my-app-dark-theme);
+  @include mat.legacy-core-color($my-app-dark-theme);
+  @include mat.legacy-button-color($my-app-dark-theme);
   @include components.theme(
     $my-app-dark-theme,
     typography.$my-app-typography,

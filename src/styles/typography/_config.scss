@@ -3,7 +3,7 @@
 @use "@angular/material" as mat;
 
 $heading-font-family: "'Work Sans', sans-serif";
-$my-app-typography: mat.define-typography-config(
+$my-app-typography: mat.define-legacy-typography-config(
   $display-4:
     mat.define-typography-level(112px, $font-family: $heading-font-family),
   $display-3:
